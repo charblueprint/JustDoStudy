@@ -2,6 +2,7 @@ package com.eoe.jds.service;
 
 import com.eoe.jds.DataNotFoundException;
 import com.eoe.jds.entity.Question;
+import com.eoe.jds.entity.SiteUser;
 import com.eoe.jds.persistent.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -51,6 +52,21 @@ public class QuestionService {
                 .createDate(LocalDateTime.now())
                 .build();
         this.questionRepository.save(q);
+    }
+    public void modify(Question question, String subject, String content) {
+        question.changeSubject(subject);
+        question.changeContent(content);
+        question.setModifyDate(LocalDateTime.now());
+        this.questionRepository.save(question);
+    }
+
+    public void delete(Question question) {
+        this.questionRepository.delete(question);
+    }
+
+    public void vote(Question question, SiteUser siteUser) {
+        question.getVoter().add(siteUser);
+        this.questionRepository.save(question);
     }
 
 }

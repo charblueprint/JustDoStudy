@@ -35,7 +35,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-
     //비밀번호 암호화 => UserService에서 사용함!
     @Bean
     public PasswordEncoder passwordEncoder() {
