@@ -1,5 +1,6 @@
 package com.eoe.jds.dto;
 
+import com.eoe.jds.entity.ToDo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,12 @@ public class TodoDTO {
         this.done = todoDTO.isDone();
     }
 
+    //DTO 인스턴스 -> Entity 인스턴스
+    public static ToDo toEntity(final TodoDTO dto){
+        return ToDo.builder()
+                .id(dto.getId())
+                .title(dto.getTitle())
+                .done(dto.isDone())
+                .build();
+    }
 }
