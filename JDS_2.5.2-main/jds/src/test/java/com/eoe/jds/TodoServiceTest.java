@@ -36,9 +36,16 @@ public class TodoServiceTest {
     }
 
     //데이터 수정 테스트
-    @Test
+    //@Test
+    @Disabled
     public void UpdateServiceTest(){
-
+        ToDo todo = ToDo.builder()
+                .id("402809818465678e01846567991e0001")
+                .userId("yurim")
+                .title("test030")
+                .done(true)
+                .build();
+        List<ToDo> list = toDoService.update(todo);
     }
 
 
