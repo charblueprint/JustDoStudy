@@ -38,16 +38,20 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public List<ToDo> retrieve(String userId) {
-        return null;
+        return toDoRepository.findByuserId(userId);
     }
 
     @Override
     public List<ToDo> update(ToDo toDo) {
-        return null;
+        validate(toDo);
+        toDoRepository.save(toDo);
+    return toDoRepository.findByuserId(toDo.getUserId());
     }
 
     @Override
     public List<ToDo> delete(ToDo toDo) {
-        return null;
+        validate(toDo);
+        toDoRepository.delete(toDo);
+        return toDoRepository.findByuserId(toDo.getUserId());
     }
 }
