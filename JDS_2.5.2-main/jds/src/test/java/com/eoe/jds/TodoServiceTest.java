@@ -48,5 +48,15 @@ public class TodoServiceTest {
         List<ToDo> list = toDoService.update(todo);
     }
 
+    //데이터 삭제 테스트
+    //@Test
+    public void DeleteServiceTest(){
+        //삭제할때에는 todo 글 번호랑 일치해야하는 아이디만 추가
+        ToDo todo = ToDo.builder()
+                .id("402809818465678e01846567991e0001")
+                .userId("yurim")
+                .build();
+        List<ToDo> list = toDoService.delete(todo);
+    }
 
 }
