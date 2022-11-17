@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
             registry.addMapping("/**")
 
                     //허락할 클라이언트 URL 등록
-                    .allowedOrigins("http://localhost:3000")
+                    .allowedOrigins("http://localhost:3001")
 
                     //허락할 요청 방식 설정
                     .allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS")
