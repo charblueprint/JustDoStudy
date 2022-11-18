@@ -2,16 +2,13 @@ package com.eoe.jds;
 
 import com.eoe.jds.entity.ToDo;
 import com.eoe.jds.persistent.TodoRepository;
-import com.sun.xml.bind.v2.TODO;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.IntStream;
 
 @SpringBootTest
 public class TodoTest {
@@ -19,17 +16,14 @@ public class TodoTest {
     private TodoRepository todoRepository;
 
     //데이터 삽입 테스트
-    //@Test
-    @Disabled
+    @Test
+    //@Disabled
     public void insertTest(){
-        //300 개의 가상의 데이터 삽입
-        IntStream.rangeClosed(1, 5).forEach(i -> {
-            ToDo todo1 = ToDo.builder()
+        ToDo todo1 = ToDo.builder()
                     .userId("yurim")
-                    .title("서점가기"+i)
+                    .title("서점가기")
                     .build();
-            todoRepository.save(todo1);
-        });
+        this.todoRepository.save(todo1);
     }
 
     //유저 아이디 조회 테스트

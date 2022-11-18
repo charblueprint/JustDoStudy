@@ -11,52 +11,5 @@ import java.util.List;
 
 @SpringBootTest
 public class TodoServiceTest {
-    @Autowired
-    private ToDoService toDoService;
-
-    //데이터 삽입 테스트
-    //@Test
-    @Disabled
-    public void InsertServiceTest(){
-        ToDo todo = ToDo.builder()
-                .userId("yurim")
-                .title("test")
-                .done(true)
-                .build();
-        List<ToDo> list = toDoService.create(todo);
-        System.out.println(list);
-    }
-
-    //데이터 조회 테스트
-    //@Test
-    @Disabled
-    public void RetrieveServiceTest(){
-        List<ToDo> list = toDoService.retrieve("yurim");
-        System.out.print(list);
-    }
-
-    //데이터 수정 테스트
-    //@Test
-    @Disabled
-    public void UpdateServiceTest(){
-        ToDo todo = ToDo.builder()
-                .id("402809818465678e01846567991e0001")
-                .userId("yurim")
-                .title("test030")
-                .done(true)
-                .build();
-        List<ToDo> list = toDoService.update(todo);
-    }
-
-    //데이터 삭제 테스트
-    //@Test
-    public void DeleteServiceTest(){
-        //삭제할때에는 todo 글 번호랑 일치해야하는 아이디만 추가
-        ToDo todo = ToDo.builder()
-                .id("402809818465678e01846567991e0001")
-                .userId("yurim")
-                .build();
-        List<ToDo> list = toDoService.delete(todo);
-    }
 
 }

@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="ko" xmln:th="http://www.thymeleaf.org" xmlns:xmln="http://www.w3.org/1999/xhtml">
+<html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<div layout:fragment="content" class="container my-3">
 <body>
-  <th:block>
-    <h1>방명록</h1>
-  </th:block>
+<p th:text="${#calendars.format(#calendars.createNow(),'yyyy년 MM월 dd일')}"></p>
+<h1>투두리스트</h1>
+<form th:action="@{/todo/create}" method="post">
+    <input name="title" placeholder="오늘의 할 일을 적어보세요!"/>
+    <button>✒</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>수행 여부</th>
+        <th>번호</th>
+        <th>작성자</th>
+        <th>할 일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todoList : ${todoList}">
+        <td th:text="${todoList.done}"></td>
+        <td th:text="${todoList.id}"></td>
+        <td th:text="${todoList.userId}"></td>
+        <td th:text="${todoList.title}"></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
+</div>
 </html>

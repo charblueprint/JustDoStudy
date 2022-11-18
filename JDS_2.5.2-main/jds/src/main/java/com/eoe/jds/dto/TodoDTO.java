@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class TodoDTO {
+    private String userId;
     private String id;
     private String title;
     private boolean done;
